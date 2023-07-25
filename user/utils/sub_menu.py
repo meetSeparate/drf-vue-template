@@ -1,19 +1,29 @@
 from user.models import Menu
 
 
-def sub_menu_list():
-    menu_query = Menu.objects.all()
-
-    menu_list = []
-    get_sub_menu(menu_query, menu_list)
-    return menu_list
-
-
-def get_sub_menu(menu_query, menu_list):
+def serializer_menu(menu_query):
+    middle_list = []
     for menu in menu_query:
-        if not menu.parent_menu:
-            # 查找根路由下的所有子路由
-            lis = []
-            menu.children = lis
-            get_sub_menu(menu.children, menu_list)
-            menu_list.append(menu)
+        middle_list.append({
+            'value': menu.id,
+            'label': menu.label,
+            'reveal': menu.reveal,
+            'path': menu.path,
+            'name': menu.menu_name,
+            'component': f'() => import(../views/{menu.component_address})',
+            'redirect': menu.redirect,
+            'meta': {
+                'title': menu.label,
+                'isMenu': menu.type == '菜单',
+                'icon': menu.menu_icon
+            },
+            'status': menu.status,
+            'children': serializer_menu(menu.menu_set.all())
+        })
+    return middle_list
+
+
+def get_sub_menu():
+    menu_query = Menu.objects.filter(parent_menu=None)
+    menu_list = serializer_menu(menu_query)
+    return menu_list

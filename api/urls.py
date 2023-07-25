@@ -1,5 +1,5 @@
 from django.urls import path, include
-from api.views import login
+from api.views import login, sign
 from user.views import users, personal, character, menu
 from announcement.views import anno
 
@@ -17,9 +17,8 @@ urlpatterns = [
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # 验证Token的有效性
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-
+    # 用户接口
     path('user/', users.UserView.as_view()),
-
     path('personal/', personal.PersonalView.as_view()),
     # 获取公告
     path('announcement/', anno.AnnouncementView.as_view()),
@@ -27,4 +26,6 @@ urlpatterns = [
     path('character/', character.CharacterView.as_view()),
     # 获取所有菜单
     path('menu/', menu.MenuView.as_view()),
+    # 注册接口
+    path('sign/', sign.SignView.as_view()),
 ]

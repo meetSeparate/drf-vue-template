@@ -1,3 +1,4 @@
+from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.serializers import ModelSerializer
 from .models import *
@@ -27,6 +28,15 @@ class CharacterSerializer(ModelSerializer):
 
 
 class MenuSerializer(ModelSerializer):
+    parent_menu_id = serializers.CharField(source='parent_menu.id', read_only=True)
+    another_name = serializers.CharField(allow_null=True)
+    reveal = serializers.CharField(allow_null=True)
+    path = serializers.CharField(allow_null=True)
+    menu_name = serializers.CharField(allow_null=True)
+    component_address = serializers.CharField(allow_null=True)
+    redirect = serializers.CharField(allow_null=True)
+    menu_icon = serializers.CharField(allow_null=True)
+
     class Meta:
         model = Menu
         fields = '__all__'
