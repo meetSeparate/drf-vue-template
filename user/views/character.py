@@ -44,7 +44,29 @@ class CharacterView(APIView):
 
         return Response(self.res)
 
+    def post(self, request):
+        permission = request.data.get('permissions')
+        title = request.data.get('title')
+        note = request.data.get('note')
+        character = Characters.objects.create(title=title, note=note)
+        character.menu.add(*permission)
+        self.res['code'] = 200
+        return Response(self.res)
 
+    def put(self, request):
+        id = request.data.get('id')
+        permission = request.data.get('permissions')
+        title = request.data.get('title')
+        note = request.data.get('note')
+        char = Characters.objects.filter(id=id)
+        char.update(title=title, note=note)
+        char.first().menu.set(permission)
+        self.res['code'] = 200
+        return Response(self.res)
 
-
-
+    def delete(self, request):
+        id = request.data.get('id')
+        char = Characters.objects.filter(id=id)
+        char.delete()
+        self.res['code'] = 200
+        return Response(self.res)

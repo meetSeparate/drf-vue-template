@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from user.utils.sub_menu import get_sub_menu
 from user.serializers import MenuSerializer
+from user.models import Menu
 
 
 class MenuView(APIView):
@@ -33,3 +34,32 @@ class MenuView(APIView):
         else:
             res['msg'] = ser.errors
         return Response(res)
+
+    def put(self, request):
+        res = {
+            'code': 500,
+            'msg': '修改成功',
+            'data': []
+        }
+        value = int(request.data.get('value'))
+        menu_query = Menu.objects.filter(id=value).first()
+        ser = MenuSerializer(instance=menu_query, data=request.data)
+        if ser.is_valid():
+            ser.save()
+            res['code'] = 200
+        else:
+            res['msg'] = ser.errors
+        return Response(res)
+
+    def delete(self, request):
+        res = {
+            'code': 500,
+            'msg': '删除成功',
+            'data': []
+        }
+        value = int(request.data.get('value'))
+        menu_obj = Menu.objects.filter(id=value)
+        menu_obj.delete()
+        res['code'] = 200
+        return Response(res)
+

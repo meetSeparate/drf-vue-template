@@ -29,8 +29,15 @@ class UserInfo(AbstractUser):
 
 class Characters(models.Model):
     title = models.CharField(verbose_name='角色名称', max_length=64)
+    note = models.TextField(verbose_name='备注', null=True)
     create_date = models.DateTimeField(verbose_name='创建时间', auto_now_add=True, null=True)
     change_date = models.DateTimeField(verbose_name='创建时间', auto_now=True, null=True)
+
+    menu = models.ManyToManyField(
+        to='Menu',
+        verbose_name='角色权限',
+        null=True
+    )
 
     def __str__(self):
         return self.title
