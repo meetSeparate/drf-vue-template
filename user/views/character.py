@@ -37,8 +37,10 @@ class CharacterView(APIView):
 
         character_list = character_query[pager.start: pager.end]
         ser = CharacterSerializer(instance=character_list, many=True)
+        total_ser = CharacterSerializer(instance=character_query, many=True)
 
         self.res['data'] = ser.data
+        self.res['total_data'] = total_ser.data
         self.res['total'] = total
         self.res['code'] = 200
 

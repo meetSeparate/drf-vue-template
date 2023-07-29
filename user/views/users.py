@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import permissions
 from api.config.pagination import Pagination
 from user.serializers import UserSerializer
-from user.models import UserInfo
+from user.models import UserInfo, Characters
 
 
 class UserView(APIView):
@@ -43,15 +43,19 @@ class UserView(APIView):
             'msg': '增加成功',
             'data': {}
         }
+        role = request.data.get('role')
+        char = Characters.objects.filter(title=role).first()
         user = UserInfo.objects.create_user(username=request.data.get('username'),
                                             password=request.data.get('password'))
+        user.role = char
+        user.save()
         ser = UserSerializer(instance=user, data=request.data)
         if ser.is_valid():
             ser.save()
             res['code'] = 200
             res['data'] = ser.data
         else:
-            res['msg'] = '未知错误'
+            res['msg'] = ser.errors
         return Response(res)
 
     def put(self, request):
@@ -61,15 +65,18 @@ class UserView(APIView):
             'data': {}
         }
         id = request.data.get('id')
+        role = request.data.get('role')
+        char = Characters.objects.filter(title=role).first()
         user_obj = UserInfo.objects.filter(id=id).first()
+        user_obj.role = char
+        user_obj.save()
         ser = UserSerializer(instance=user_obj, data=request.data)
-
         if ser.is_valid():
             ser.save()
             res['code'] = 200
             res['data'] = ser.data
         else:
-            res['msg'] = '未知错误'
+            res['msg'] = ser.errors
         return Response(res)
 
     def delete(self, request):

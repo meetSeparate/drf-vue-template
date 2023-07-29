@@ -16,6 +16,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 
 class UserSerializer(ModelSerializer):
+    role = serializers.CharField(source='role.title', read_only=True)
+
     class Meta:
         model = UserInfo
         fields = ['id', 'username', 'name', 'gender', 'age', 'phone', 'role', 'date_joined']
@@ -28,15 +30,6 @@ class CharacterSerializer(ModelSerializer):
 
 
 class MenuSerializer(ModelSerializer):
-    parent_menu_id = serializers.CharField(source='parent_menu.id', read_only=True)
-    another_name = serializers.CharField(allow_null=True)
-    reveal = serializers.CharField(allow_null=True)
-    path = serializers.CharField(allow_null=True)
-    menu_name = serializers.CharField(allow_null=True)
-    component_address = serializers.CharField(allow_null=True)
-    redirect = serializers.CharField(allow_null=True)
-    menu_icon = serializers.CharField(allow_null=True)
-
     class Meta:
         model = Menu
         fields = '__all__'

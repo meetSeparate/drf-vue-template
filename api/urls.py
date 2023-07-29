@@ -1,5 +1,5 @@
 from django.urls import path, include
-from api.views import login, sign
+from api.views import login, sign, route
 from user.views import users, personal, character, menu
 from announcement.views import anno
 
@@ -28,4 +28,6 @@ urlpatterns = [
     path('menu/', menu.MenuView.as_view()),
     # 注册接口
     path('sign/', sign.SignView.as_view()),
+    # 获取当前角色对应菜单路由
+    path('route/', route.RouteView.as_view())
 ]

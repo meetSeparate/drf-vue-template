@@ -20,7 +20,7 @@ def serializer_menu(menu_query):
             'redirect': menu.redirect,
             'menu_icon': menu.menu_icon,
             'status': menu.status,
-            'parent_menu': parent_menu_id,
+            'parent_menu_id': parent_menu_id,
             'children': serializer_menu(menu.menu_set.all())
         })
     return middle_list

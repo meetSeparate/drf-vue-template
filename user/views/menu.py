@@ -2,7 +2,6 @@ from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from user.utils.sub_menu import get_sub_menu
-from user.serializers import MenuSerializer
 from user.models import Menu
 
 
@@ -27,12 +26,11 @@ class MenuView(APIView):
             'msg': '新增成功',
             'data': []
         }
-        ser = MenuSerializer(data=request.data)
-        if ser.is_valid():
-            ser.save()
-            res['code'] = 200
-        else:
-            res['msg'] = ser.errors
+        request.data.pop('value')
+        if request.data.get('children'):
+            request.data.pop('children')
+        Menu.objects.create(**request.data)
+        res['code'] = 200
         return Response(res)
 
     def put(self, request):
@@ -42,13 +40,10 @@ class MenuView(APIView):
             'data': []
         }
         value = int(request.data.get('value'))
-        menu_query = Menu.objects.filter(id=value).first()
-        ser = MenuSerializer(instance=menu_query, data=request.data)
-        if ser.is_valid():
-            ser.save()
-            res['code'] = 200
-        else:
-            res['msg'] = ser.errors
+        menu_query = Menu.objects.filter(id=value)
+        request.data.pop('value')
+        request.data.pop('children')
+        menu_query.update(**request.data)
         return Response(res)
 
     def delete(self, request):

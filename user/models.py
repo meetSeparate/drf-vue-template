@@ -9,13 +9,12 @@ class UserInfo(AbstractUser):
     gender = models.CharField(verbose_name='性别', max_length=32, null=True)
     age = models.IntegerField(verbose_name='年龄', null=True)
     phone = models.CharField(verbose_name='手机号', max_length=32, null=True)
-    role = models.CharField(verbose_name='角色', max_length=32, null=True)
 
-    user = models.ForeignKey(
+    role = models.ForeignKey(
         to='Characters',
         to_field='id',
         on_delete=models.SET_NULL,
-        verbose_name='发布人', null=True, blank=True
+        verbose_name='角色', null=True, blank=True
     )
 
     def __str__(self):
