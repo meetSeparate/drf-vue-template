@@ -53,6 +53,7 @@ class Menu(models.Model):
     path = models.CharField(verbose_name='菜单URL', max_length=128, null=True)
     menu_name = models.CharField(verbose_name='菜单Name', max_length=128, null=True)
     component_address = models.CharField(verbose_name='组件地址', max_length=128, null=True)
+    sequence = models.CharField(verbose_name='菜单顺序', max_length=128, null=True)
     redirect = models.CharField(verbose_name='重定向', max_length=128, null=True)
     menu_icon = models.CharField(verbose_name='菜单Icon', max_length=64, null=True)
     status = models.CharField(verbose_name='菜单状态', default='正常', max_length=64)

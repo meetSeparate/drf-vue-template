@@ -12,6 +12,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['refresh'] = str(refresh)
         data['token'] = str(refresh.access_token)
         data['username'] = self.user.username
+        data['role'] = self.user.role.title
         return data
 
 

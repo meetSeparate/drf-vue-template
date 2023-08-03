@@ -33,3 +33,16 @@ class AnnouncementView(APIView):
         else:
             res['msg'] = ser.errors
         return Response(res)
+
+    def delete(self, request):
+        res = {
+            'code': 500,
+            'msg': '删除成功',
+            'data': {}
+        }
+
+        id = request.data.get('id')
+        anno = Announcement.objects.filter(id=id)
+        anno.delete()
+        res['code'] = 200
+        return Response(res)

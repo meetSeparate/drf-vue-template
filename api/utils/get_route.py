@@ -18,7 +18,6 @@ def serializer_menu(menu_query):
 
 
 def get_route(user):
-    menu_query = user.role.menu.filter(parent_menu_id=1)
-    print(user.role.menu.filter(parent_menu_id=1))
+    menu_query = user.role.menu.filter(parent_menu_id=1).order_by('sequence')
     menu_list = serializer_menu(menu_query)
     return menu_list

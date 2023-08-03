@@ -1,5 +1,5 @@
 """
-WSGI config for operating_system_drf project.
+WSGI config for drf-vue-template project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'operating_system_drf.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drf-vue-template.settings')
 
 application = get_wsgi_application()

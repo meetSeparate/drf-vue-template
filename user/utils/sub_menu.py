@@ -17,6 +17,7 @@ def serializer_menu(menu_query):
             'path': menu.path,
             'menu_name': menu.menu_name,
             'component_address': menu.component_address,
+            'sequence': menu.sequence,
             'redirect': menu.redirect,
             'menu_icon': menu.menu_icon,
             'status': menu.status,
