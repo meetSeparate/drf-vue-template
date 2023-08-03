@@ -1,3 +1,4 @@
+from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from announcement.models import Announcement
@@ -5,6 +6,8 @@ from announcement.serializers import AnnouncementSerializer
 
 
 class AnnouncementView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
     def get(self, request):
         res = {
             'code': 500,
@@ -24,14 +27,11 @@ class AnnouncementView(APIView):
             'msg': '新增成功',
             'data': {}
         }
-
-        ser = AnnouncementSerializer(data=request.data)
-        if ser.is_valid():
-            username = request.data.get('username')
-            ser.create(validated_data=ser.validated_data, username=username)
-            res['code'] = 200
-        else:
-            res['msg'] = ser.errors
+        content = request.data.get('content')
+        color = request.data.get('color')
+        size = request.data.get('size')
+        Announcement.objects.create(content=content, color=color, size=size, user=request.user)
+        res['code'] = 200
         return Response(res)
 
     def delete(self, request):

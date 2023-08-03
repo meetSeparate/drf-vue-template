@@ -2,6 +2,7 @@ from django.urls import path, include
 from api.views import login, sign, route
 from user.views import users, personal, character, menu
 from announcement.views import anno
+from multi.views import multi_user, multi_role
 
 # 导入 simplejwt 提供的几个验证视图类
 from rest_framework_simplejwt.views import (
@@ -29,5 +30,9 @@ urlpatterns = [
     # 注册接口
     path('sign/', sign.SignView.as_view()),
     # 获取当前角色对应菜单路由
-    path('route/', route.RouteView.as_view())
+    path('route/', route.RouteView.as_view()),
+    # 批量删除用户
+    path('multi_user/', multi_user.MultiDeleteUserView.as_view()),
+    # 批量删除角色
+    path('multi_role/', multi_role.MultiDeleteRoleView.as_view()),
 ]

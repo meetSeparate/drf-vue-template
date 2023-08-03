@@ -27,7 +27,7 @@ class MenuView(APIView):
             'data': []
         }
         request.data.pop('value')
-        if request.data.get('children'):
+        if request.data.get('children') == []:
             request.data.pop('children')
         Menu.objects.create(**request.data)
         res['code'] = 200

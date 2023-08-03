@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'announcement',
     'import_export',
+    'multi',
 
 ]
 
