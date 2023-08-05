@@ -27,6 +27,5 @@ class SignView(APIView):
             return Response(res)
 
         UserInfo.objects.create_user(username=username, password=password)
-
         res['code'] = 200
         return Response(res)
