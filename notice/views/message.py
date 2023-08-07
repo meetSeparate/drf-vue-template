@@ -28,7 +28,8 @@ class NoticeView(APIView):
             'code': 200,
             'msg': 'success',
             'data': [],
-            'count': 1
+            'count': 1,
+            'user': []
         }
         user_obj = UserInfo.objects.filter(id=request.user.id).first()
         user_notice = user_obj.notice_set.all()
