@@ -12,7 +12,6 @@ class Notice(models.Model):
     user = models.ManyToManyField(
         to=UserInfo,
         verbose_name='对应用户',
-        null=True
     )
 
     def __str__(self):

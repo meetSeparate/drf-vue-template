@@ -5,4 +5,4 @@ from notice.models import Notice
 class NoticeSerializer(ModelSerializer):
     class Meta:
         model = Notice
-        fields = ['avatar', 'title', 'datetime', 'description', 'type']
+        fields = ['id', 'avatar', 'title', 'datetime', 'description', 'type']

@@ -33,3 +33,15 @@ class AllNoticeView(APIView):
         res['data'] = ser.data
         res['total'] = total
         return Response(res)
+
+    def delete(self, request):
+        res = {
+            'code': 200,
+            'msg': '删除成功',
+            'data': {}
+        }
+        id = request.data.get('id')
+        notice_obj = Notice.objects.filter(id=id)
+        notice_obj.delete()
+        return Response(res)
+

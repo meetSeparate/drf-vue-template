@@ -35,7 +35,6 @@ class Characters(models.Model):
     menu = models.ManyToManyField(
         to='Menu',
         verbose_name='角色权限',
-        null=True
     )
 
     def __str__(self):
