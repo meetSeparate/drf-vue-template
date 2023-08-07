@@ -2,7 +2,7 @@ from django.urls import path, include
 from api.views import login, sign, route
 from user.views import users, personal, character, menu
 from announcement.views import anno
-from multi.views import multi_user, multi_role
+from multi.views import multi_user, multi_role, multi_notice
 from notice.views import message, all_message
 
 # 导入 simplejwt 提供的几个验证视图类
@@ -36,6 +36,8 @@ urlpatterns = [
     path('multi_user/', multi_user.MultiDeleteUserView.as_view()),
     # 批量删除角色
     path('multi_role/', multi_role.MultiDeleteRoleView.as_view()),
+    # 批量删除消息
+    path('multi_notice/', multi_notice.MultiDeleteNoticeView.as_view()),
     # 发送消息
     path('notice/', message.NoticeView.as_view()),
     # 消息管理
