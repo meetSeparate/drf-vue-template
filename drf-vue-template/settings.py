@@ -155,7 +155,7 @@ WSGI_APPLICATION = 'drf-vue-template.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'drf_vue_mysql',
+        'NAME': 'drf_vue_system',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': '127.0.0.1',

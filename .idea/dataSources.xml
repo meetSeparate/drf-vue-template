@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="drf_vue_mysql@localhost" uuid="548e0500-2d6a-4679-a671-ba15c057352b">
+    <data-source source="LOCAL" name="drf_vue_system@localhost" uuid="0e108215-7709-4ae0-b048-139427b83b5c">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/drf_vue_mysql</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/drf_vue_system</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
