@@ -3,6 +3,7 @@ from api.views import login, sign, route
 from user.views import users, personal, character, menu
 from announcement.views import anno
 from multi.views import multi_user, multi_role
+from notice.views import message
 
 # 导入 simplejwt 提供的几个验证视图类
 from rest_framework_simplejwt.views import (
@@ -35,4 +36,6 @@ urlpatterns = [
     path('multi_user/', multi_user.MultiDeleteUserView.as_view()),
     # 批量删除角色
     path('multi_role/', multi_role.MultiDeleteRoleView.as_view()),
+    # 发送消息
+    path('notice/', message.NoticeView.as_view()),
 ]
