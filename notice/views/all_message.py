@@ -29,7 +29,6 @@ class AllNoticeView(APIView):
         )
         notice_query = notice_list[pager.start:pager.end]
         ser = NoticeSerializer(instance=notice_query, many=True)
-        print(ser.data)
         res['data'] = ser.data
         res['total'] = total
         return Response(res)
