@@ -198,7 +198,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,7 +207,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2023-08-03 01:29:45.946799'),(2,'contenttypes','0002_remove_content_type_name','2023-08-03 01:29:45.996665'),(3,'auth','0001_initial','2023-08-03 01:29:46.148871'),(4,'auth','0002_alter_permission_name_max_length','2023-08-03 01:29:46.185298'),(5,'auth','0003_alter_user_email_max_length','2023-08-03 01:29:46.190284'),(6,'auth','0004_alter_user_username_opts','2023-08-03 01:29:46.196268'),(7,'auth','0005_alter_user_last_login_null','2023-08-03 01:29:46.202252'),(8,'auth','0006_require_contenttypes_0002','2023-08-03 01:29:46.204247'),(9,'auth','0007_alter_validators_add_error_messages','2023-08-03 01:29:46.209233'),(10,'auth','0008_alter_user_username_max_length','2023-08-03 01:29:46.215218'),(11,'auth','0009_alter_user_last_name_max_length','2023-08-03 01:29:46.220207'),(12,'auth','0010_alter_group_name_max_length','2023-08-03 01:29:46.232172'),(13,'auth','0011_update_proxy_permissions','2023-08-03 01:29:46.237160'),(14,'auth','0012_alter_user_first_name_max_length','2023-08-03 01:29:46.243143'),(15,'user','0001_initial','2023-08-03 01:29:46.607561'),(16,'admin','0001_initial','2023-08-03 01:29:46.691336'),(17,'admin','0002_logentry_remove_auto_add','2023-08-03 01:29:46.699315'),(18,'admin','0003_logentry_add_action_flag_choices','2023-08-03 01:29:46.708475'),(19,'announcement','0001_initial','2023-08-03 01:29:46.723145'),(20,'announcement','0002_initial','2023-08-03 01:29:46.763038'),(21,'sessions','0001_initial','2023-08-03 01:29:46.788970'),(22,'notice','0001_initial','2023-08-07 03:14:15.754697'),(23,'notice','0002_alter_notice_avatar','2023-08-07 05:16:02.168829'),(24,'notice','0003_notice_user','2023-08-07 07:04:19.416523');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2023-08-03 01:29:45.946799'),(2,'contenttypes','0002_remove_content_type_name','2023-08-03 01:29:45.996665'),(3,'auth','0001_initial','2023-08-03 01:29:46.148871'),(4,'auth','0002_alter_permission_name_max_length','2023-08-03 01:29:46.185298'),(5,'auth','0003_alter_user_email_max_length','2023-08-03 01:29:46.190284'),(6,'auth','0004_alter_user_username_opts','2023-08-03 01:29:46.196268'),(7,'auth','0005_alter_user_last_login_null','2023-08-03 01:29:46.202252'),(8,'auth','0006_require_contenttypes_0002','2023-08-03 01:29:46.204247'),(9,'auth','0007_alter_validators_add_error_messages','2023-08-03 01:29:46.209233'),(10,'auth','0008_alter_user_username_max_length','2023-08-03 01:29:46.215218'),(11,'auth','0009_alter_user_last_name_max_length','2023-08-03 01:29:46.220207'),(12,'auth','0010_alter_group_name_max_length','2023-08-03 01:29:46.232172'),(13,'auth','0011_update_proxy_permissions','2023-08-03 01:29:46.237160'),(14,'auth','0012_alter_user_first_name_max_length','2023-08-03 01:29:46.243143'),(15,'user','0001_initial','2023-08-03 01:29:46.607561'),(16,'admin','0001_initial','2023-08-03 01:29:46.691336'),(17,'admin','0002_logentry_remove_auto_add','2023-08-03 01:29:46.699315'),(18,'admin','0003_logentry_add_action_flag_choices','2023-08-03 01:29:46.708475'),(19,'announcement','0001_initial','2023-08-03 01:29:46.723145'),(20,'announcement','0002_initial','2023-08-03 01:29:46.763038'),(21,'sessions','0001_initial','2023-08-03 01:29:46.788970'),(22,'notice','0001_initial','2023-08-07 03:14:15.754697'),(23,'notice','0002_alter_notice_avatar','2023-08-07 05:16:02.168829'),(24,'notice','0003_notice_user','2023-08-07 07:04:19.416523'),(25,'notice','0004_alter_notice_user','2023-08-07 12:43:42.839107'),(26,'user','0002_alter_characters_menu','2023-08-07 12:43:42.856061');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +251,7 @@ CREATE TABLE `notice_notice` (
   `description` longtext NOT NULL,
   `type` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,7 +260,7 @@ CREATE TABLE `notice_notice` (
 
 LOCK TABLES `notice_notice` WRITE;
 /*!40000 ALTER TABLE `notice_notice` DISABLE KEYS */;
-INSERT INTO `notice_notice` VALUES (1,'https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png','测试消息','2023-08-07 07:03:54.369025','',2),(2,'https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png','测试消息','2023-08-07 07:04:26.368287','',2);
+INSERT INTO `notice_notice` VALUES (2,'https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png','测试消息','2023-08-07 07:04:26.368287','',2),(4,'https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png','恭喜你抽中一辆太阳神','2023-08-07 12:54:57.545906','',1),(10,'https://gw.alipayobjects.com/zos/rmsportal/GvqBnKhFgObvnSGkDsje.png','你好好你好','2023-08-11 01:16:06.671974','',1),(11,'https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png','你好啊你好','2023-08-11 01:24:31.807194','123',1),(12,'https://gw.alipayobjects.com/zos/rmsportal/GvqBnKhFgObvnSGkDsje.png','112332','2023-08-11 01:36:47.996821','',1),(13,'https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png','消息消息','2023-08-11 01:46:18.034171','',2);
 /*!40000 ALTER TABLE `notice_notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,7 +280,7 @@ CREATE TABLE `notice_notice_user` (
   KEY `notice_notice_user_userinfo_id_57dbeca1_fk_user_userinfo_id` (`userinfo_id`),
   CONSTRAINT `notice_notice_user_notice_id_e4199be9_fk_notice_notice_id` FOREIGN KEY (`notice_id`) REFERENCES `notice_notice` (`id`),
   CONSTRAINT `notice_notice_user_userinfo_id_57dbeca1_fk_user_userinfo_id` FOREIGN KEY (`userinfo_id`) REFERENCES `user_userinfo` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +289,7 @@ CREATE TABLE `notice_notice_user` (
 
 LOCK TABLES `notice_notice_user` WRITE;
 /*!40000 ALTER TABLE `notice_notice_user` DISABLE KEYS */;
-INSERT INTO `notice_notice_user` VALUES (1,2,1);
+INSERT INTO `notice_notice_user` VALUES (1,2,1),(2,4,1),(5,10,1),(6,11,1),(7,12,1),(8,13,1);
 /*!40000 ALTER TABLE `notice_notice_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,7 +336,7 @@ CREATE TABLE `user_characters_menu` (
   KEY `user_characters_menu_menu_id_e25445e8_fk_user_menu_id` (`menu_id`),
   CONSTRAINT `user_characters_menu_characters_id_257c4019_fk_user_char` FOREIGN KEY (`characters_id`) REFERENCES `user_characters` (`id`),
   CONSTRAINT `user_characters_menu_menu_id_e25445e8_fk_user_menu_id` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -345,7 +345,7 @@ CREATE TABLE `user_characters_menu` (
 
 LOCK TABLES `user_characters_menu` WRITE;
 /*!40000 ALTER TABLE `user_characters_menu` DISABLE KEYS */;
-INSERT INTO `user_characters_menu` VALUES (4,3,1),(5,3,2),(6,3,3),(7,3,4),(8,3,5),(9,3,6),(10,3,7),(11,3,8),(12,3,9),(13,3,10),(14,3,11),(15,3,12),(16,3,13),(17,3,14),(18,3,15),(19,3,16),(20,3,17),(21,3,18),(22,3,19),(23,3,20),(24,3,21),(25,3,22);
+INSERT INTO `user_characters_menu` VALUES (4,3,1),(5,3,2),(6,3,3),(7,3,4),(8,3,5),(9,3,6),(10,3,7),(11,3,8),(12,3,9),(13,3,10),(14,3,11),(15,3,12),(16,3,13),(17,3,14),(18,3,15),(19,3,16),(20,3,17),(21,3,18),(22,3,19),(23,3,20),(24,3,21),(25,3,22),(26,3,23),(28,3,24),(29,3,25),(27,4,23),(30,4,24),(31,4,25);
 /*!40000 ALTER TABLE `user_characters_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,7 +373,7 @@ CREATE TABLE `user_menu` (
   PRIMARY KEY (`id`),
   KEY `user_menu_parent_menu_id_35dc55e4_fk_user_menu_id` (`parent_menu_id`),
   CONSTRAINT `user_menu_parent_menu_id_35dc55e4_fk_user_menu_id` FOREIGN KEY (`parent_menu_id`) REFERENCES `user_menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -382,7 +382,7 @@ CREATE TABLE `user_menu` (
 
 LOCK TABLES `user_menu` WRITE;
 /*!40000 ALTER TABLE `user_menu` DISABLE KEYS */;
-INSERT INTO `user_menu` VALUES (1,'根节点','根节点','根节点','是','',NULL,NULL,NULL,NULL,'','正常',NULL),(2,'权限管理',NULL,'目录','是','/permission','permission','Layout/index.vue','4','/permission/menu','Lollipop','正常',1),(3,'菜单管理',NULL,'菜单','是','/permission/menu','menu','Permission/Menu.vue','1',NULL,NULL,'正常',2),(4,'角色管理','','菜单','是','/permission/role','role','Permission/Role.vue','2','','','正常',2),(5,'异常页面','','目录','是','/error','error','Layout/index.vue','3','/error/403','Warning','正常',1),(6,'403','','菜单','是','/error/403','403','Error/403.vue','1','','','',5),(7,'404','','菜单','','/error/404','404','Error/404.vue','2','','','',5),(8,'500','','菜单','是','/error/500','500','Error/500.vue','3','','','',5),(9,'用户管理','','目录','是','/user','user','Layout/index.vue','1','/user/account','User','',1),(10,'用户管理','','菜单','','/user/account','account','User/Account.vue','1','','User','',9),(11,'新增','','按钮','','','','','2','','','',3),(12,'修改','','按钮','','','','','2','','','',3),(13,'删除','','按钮','','','','','2','','','',3),(14,'新增','','按钮','','','','','2','','','',4),(15,'修改','','按钮','','','','','2','','','',4),(16,'删除','','按钮','','','','','2','','','',4),(17,'新增','','按钮','','','','','2','','','',10),(18,'修改','','按钮','','','','','2','','','',10),(19,'删除','','按钮','','','','','2','','','',10),(20,'消息管理','','目录','是','/message','message','Layout/index.vue','2','/message/notice','Message','正常',1),(21,'消息管理','','菜单','是','/message/notice','notice','Notice/index.vue','1','','Message','正常',20),(22,'删除','','按钮','','','','','2','','','',21);
+INSERT INTO `user_menu` VALUES (1,'根节点','根节点','根节点','是','',NULL,NULL,NULL,NULL,'','正常',NULL),(2,'权限管理',NULL,'目录','是','/permission','permission','Layout/index.vue','5','/permission/menu','Lock','正常',1),(3,'菜单管理',NULL,'菜单','是','/permission/menu','menu','Permission/Menu.vue','1',NULL,NULL,'正常',2),(4,'角色管理','','菜单','是','/permission/role','role','Permission/Role.vue','2','','','正常',2),(5,'异常页面','','目录','是','/error','error','Layout/index.vue','4','/error/403','WarningFilled','正常',1),(6,'403','','菜单','是','/error/403','403','Error/403.vue','1','','','',5),(7,'404','','菜单','','/error/404','404','Error/404.vue','2','','','',5),(8,'500','','菜单','是','/error/500','500','Error/500.vue','3','','','',5),(9,'用户管理','','目录','是','/user','user','Layout/index.vue','2','/user/account','UserFilled','',1),(10,'用户管理','','菜单','','/user/account','account','User/Account.vue','1','','UserFilled','',9),(11,'新增','','按钮','','','','','2','','','',3),(12,'修改','','按钮','','','','','2','','','',3),(13,'删除','','按钮','','','','','2','','','',3),(14,'新增','','按钮','','','','','2','','','',4),(15,'修改','','按钮','','','','','2','','','',4),(16,'删除','','按钮','','','','','2','','','',4),(17,'新增','','按钮','','','','','2','','','',10),(18,'修改','','按钮','','','','','2','','','',10),(19,'删除','','按钮','','','','','2','','','',10),(20,'消息管理','','目录','是','/message','message','Layout/index.vue','3','/message/notice','Comment','正常',1),(21,'消息管理','','菜单','是','/message/notice','notice','Notice/index.vue','1','','Comment','正常',20),(22,'删除','','按钮','','','','','2','','','',21),(23,'数据大屏','','菜单','是','/screen','screen','Screen/index.vue','1','','Histogram','',1),(24,'引导页','','目录','是','/guide','guide','Layout/index.vue','6','/guide/intro','Promotion','正常',1),(25,'引导页','','菜单','是','/guide/intro','intro','Guide/index.vue','1','','Promotion','正常',24);
 /*!40000 ALTER TABLE `user_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -415,7 +415,7 @@ CREATE TABLE `user_userinfo` (
   KEY `user_userinfo_role_id_e5218572_fk_user_characters_id` (`role_id`),
   KEY `user_userinfo_username_phone_90e3b8e8_idx` (`username`,`phone`),
   CONSTRAINT `user_userinfo_role_id_e5218572_fk_user_characters_id` FOREIGN KEY (`role_id`) REFERENCES `user_characters` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -424,7 +424,7 @@ CREATE TABLE `user_userinfo` (
 
 LOCK TABLES `user_userinfo` WRITE;
 /*!40000 ALTER TABLE `user_userinfo` DISABLE KEYS */;
-INSERT INTO `user_userinfo` VALUES (1,'pbkdf2_sha256$600000$0ntE8ODW8gD66hHUOUWW5s$i26oAEI050sQZsXGJq/hXOnrlQbHah/OOuJSgtT1Uyw=',NULL,1,'admin','','','',1,1,'2023-08-03 01:30:08.985710','张恩宇','男',21,'15566666666',3);
+INSERT INTO `user_userinfo` VALUES (1,'pbkdf2_sha256$600000$0ntE8ODW8gD66hHUOUWW5s$i26oAEI050sQZsXGJq/hXOnrlQbHah/OOuJSgtT1Uyw=',NULL,1,'admin','','','',1,1,'2023-08-03 01:30:08.985710','张恩宇','男',21,'15566666666',3),(2,'pbkdf2_sha256$600000$ralHghev6BR2Q3oDWLxSQY$VWwMz4O3iRj1QfTo9RbDha22j7cfeejCXlQVOQ4cbRo=',NULL,0,'test456','','','',0,1,'2023-08-11 01:48:56.210655','123','男',21,'15566666666',4);
 /*!40000 ALTER TABLE `user_userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -493,4 +493,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-07 17:33:15
+-- Dump completed on 2023-08-13 11:02:11
