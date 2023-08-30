@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'announcement',
     'import_export',
     'multi',
-    'notice'
+    'notice',
+    'category',
+    'goods'
 ]
 
 SIMPLEUI_HOME_INFO = False
