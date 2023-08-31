@@ -8,7 +8,7 @@ class Category(models.Model):
     picture = models.FileField(upload_to='category/', verbose_name='分类图片')
     parent_category = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE,
                                     verbose_name='父分类')
-    goods = models.ManyToManyField(to=Goods, verbose_name='分类商品')
+    goods = models.ManyToManyField(to=Goods, verbose_name='分类商品', null=True, blank=True)
 
 
     def __str__(self):
