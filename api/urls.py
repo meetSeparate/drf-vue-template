@@ -4,7 +4,7 @@ from user.views import users, personal, character, menu
 from announcement.views import anno
 from multi.views import multi_user, multi_role, multi_notice
 from notice.views import message, all_message, user_notice
-from category.views import head
+from category.views import head, category_details
 
 # 导入 simplejwt 提供的几个验证视图类
 from rest_framework_simplejwt.views import (
@@ -47,4 +47,6 @@ urlpatterns = [
     path('user_notice/', user_notice.UserNoticeView.as_view()),
     # 获取Web端首页分类数据
     path('categoryHead/', head.CategoryHeadView.as_view()),
+    # 获取某分类下所有二级分类
+    path('categoryDetails/', category_details.CategoryDetailsView.as_view()),
 ]
