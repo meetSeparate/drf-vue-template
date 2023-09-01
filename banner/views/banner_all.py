@@ -9,12 +9,13 @@ class BannerAllView(APIView):
     res = {
         'code': 500,
         'msg': '操作成功',
-        'data': []
+        'data': None
     }
 
     def get(self ,request):
         distribution_site = int(request.GET.get('distributionSite'))
         banner_list = Banner.objects.all()
+        self.res['data'] = []
         for banner in banner_list:
             self.res['data'].append({
                 'id': banner.id,

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from category.models import Category
-from goods.models import Goods
+from goods.models import Goods, Recommend
 from banner.models import Banner
 
 # Register your models here.
@@ -8,3 +8,4 @@ from banner.models import Banner
 admin.site.register(Category)
 admin.site.register(Goods)
 admin.site.register(Banner)
+admin.site.register(Recommend)
