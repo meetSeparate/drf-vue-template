@@ -5,6 +5,7 @@ from announcement.views import anno
 from multi.views import multi_user, multi_role, multi_notice
 from notice.views import message, all_message, user_notice
 from category.views import head, category_details
+from banner.views import banner_all
 
 # 导入 simplejwt 提供的几个验证视图类
 from rest_framework_simplejwt.views import (
@@ -49,4 +50,6 @@ urlpatterns = [
     path('categoryHead/', head.CategoryHeadView.as_view()),
     # 获取某分类下所有二级分类
     path('categoryDetails/', category_details.CategoryDetailsView.as_view()),
+    # 获取首页轮播图
+    path('banner/', banner_all.BannerAllView.as_view()),
 ]

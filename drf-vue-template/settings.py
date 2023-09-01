@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'multi',
     'notice',
     'category',
-    'goods'
+    'goods',
+    'banner'
 ]
 
 SIMPLEUI_HOME_INFO = False
