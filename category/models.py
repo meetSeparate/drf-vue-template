@@ -9,6 +9,7 @@ class Category(models.Model):
     parent_category = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE,
                                     verbose_name='父分类')
     goods = models.ManyToManyField(to=Goods, verbose_name='分类商品', null=True, blank=True)
+    saleInfo = models.CharField(verbose_name='分类描述', max_length=256, null=True)
 
 
     def __str__(self):
