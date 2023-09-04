@@ -22,6 +22,20 @@ class Goods(models.Model):
         verbose_name_plural = '商品管理'
 
 
+class GoodsSpecs(models.Model):
+    name = models.CharField(verbose_name='商品规格名称', max_length=128)
+    desc = models.CharField(verbose_name='商品规格介绍', max_length=256)
+    picture = models.FileField(verbose_name='商品规格图片', upload_to='good_color/', null=True, blank=True)
+    disabled = models.BooleanField(verbose_name='是否可选', default=False)
+    selected = models.BooleanField(verbose_name='是否选中', default=False)
+    shop = models.ForeignKey(to='Goods', on_delete=models.CASCADE, verbose_name='对应商品', null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = '商品规格'
+
 class Recommend(models.Model):
     title = models.CharField(verbose_name='标题', max_length=128)
     alt = models.CharField(verbose_name='描述', max_length=128)
