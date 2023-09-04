@@ -7,7 +7,12 @@ class Goods(models.Model):
     desc = models.TextField(verbose_name='商品简介', null=True)
     picture = models.FileField(upload_to='goods/', verbose_name='商品封面')
     orderNum = models.IntegerField(verbose_name='数量', null=True, blank=True)
+    old_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='原商品价格', null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='商品价格')
+    salesCount = models.IntegerField(verbose_name='销量人气', default=0)
+    commentCount = models.IntegerField(verbose_name='商品评价', default=0)
+    collectionCount = models.IntegerField(verbose_name='收藏人气', default=0)
+    brand = models.CharField(verbose_name='品牌信息', max_length=128, null=True, blank=True)
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='发布时间', null=True)
 
     def __str__(self):
