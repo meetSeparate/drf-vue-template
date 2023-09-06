@@ -21,9 +21,23 @@ class Goods(models.Model):
     class Meta:
         verbose_name_plural = '商品管理'
 
+class ShopDetailImage(models.Model):
+    image = models.FileField(verbose_name='商品详情图片', upload_to='shop_detail/')
+    shop = models.ForeignKey(to='Goods', on_delete=models.CASCADE, verbose_name='对应商品', null=True)
+
+    def __str__(self):
+        return self.shop.name
+
+    class Meta:
+        verbose_name_plural = '商品详情图片'
 
 class GoodsSpecs(models.Model):
     name = models.CharField(verbose_name='商品规格名称', max_length=128)
+    spec_type_choices = (
+        (1, '颜色'),
+        (2, '尺码')
+    )
+    spec_type = models.IntegerField(choices=spec_type_choices, verbose_name='规格类型', null=True)
     desc = models.CharField(verbose_name='商品规格介绍', max_length=256)
     picture = models.FileField(verbose_name='商品规格图片', upload_to='good_color/', null=True, blank=True)
     disabled = models.BooleanField(verbose_name='是否可选', default=False)
