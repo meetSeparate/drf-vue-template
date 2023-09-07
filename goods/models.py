@@ -35,13 +35,13 @@ class GoodsSpecs(models.Model):
     name = models.CharField(verbose_name='商品规格名称', max_length=128)
     spec_type_choices = (
         (1, '颜色'),
-        (2, '尺码')
+        (2, '尺码'),
+        (3, '规格')
     )
     spec_type = models.IntegerField(choices=spec_type_choices, verbose_name='规格类型', null=True)
     desc = models.CharField(verbose_name='商品规格介绍', max_length=256)
     picture = models.FileField(verbose_name='商品规格图片', upload_to='good_color/', null=True, blank=True)
     disabled = models.BooleanField(verbose_name='是否可选', default=False)
-    selected = models.BooleanField(verbose_name='是否选中', default=False)
     shop = models.ForeignKey(to='Goods', on_delete=models.CASCADE, verbose_name='对应商品', null=True)
 
     def __str__(self):
@@ -49,6 +49,16 @@ class GoodsSpecs(models.Model):
 
     class Meta:
         verbose_name_plural = '商品规格'
+
+class GoodsSkus(models.Model):
+    specs = models.ManyToManyField(to=GoodsSpecs, verbose_name='商品规格')
+    old_price = models.DecimalField(verbose_name='组合原价', max_digits=10, decimal_places=2)
+    price = models.DecimalField(verbose_name='组合现价', max_digits=10, decimal_places=2)
+    inventory = models.IntegerField(verbose_name='库存', default=0)
+    shop = models.ForeignKey(to='Goods', on_delete=models.CASCADE, verbose_name='对应商品', null=True)
+
+    class Meta:
+        verbose_name_plural = '商品规格组合'
 
 class Recommend(models.Model):
     title = models.CharField(verbose_name='标题', max_length=128)
