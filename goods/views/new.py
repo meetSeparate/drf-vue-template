@@ -13,7 +13,7 @@ class GoodsNewView(APIView):
     }
 
     def get(self, request):
-        result = Goods.objects.order_by('create_date')[:4]
+        result = Goods.objects.order_by('-create_date')[:4]
         self.res['data'] = []
         for good in result:
             self.res['data'].append({

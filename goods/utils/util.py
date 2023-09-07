@@ -11,3 +11,6 @@ def get_category_detail(category):
         'id': category.id,
         'name': category.name
     }
+
+
+def get_specs(good_obj):

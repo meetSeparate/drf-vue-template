@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework.response import Response
 from goods.models import Goods, GoodsSpecs
-from goods.utils.get_category import get_all_category
+from goods.utils.util import get_all_category
 
 
 class GoodsDetailView(APIView):
