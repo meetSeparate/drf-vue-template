@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'notice',
     'category',
     'goods',
-    'banner'
+    'banner',
+    'salary'
 ]
 
 SIMPLEUI_HOME_INFO = False
@@ -160,7 +161,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'drf_vue_system',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '12345678',
         'HOST': '127.0.0.1',
         'PORT': 3306
     }

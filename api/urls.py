@@ -1,12 +1,12 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from api.views import login, sign, route
-from user.views import users, personal, character, menu
+from user.views import users, personal, character, menu, file, detect, reocrd
 from announcement.views import anno
 from multi.views import multi_user, multi_role, multi_notice
 from notice.views import message, all_message, user_notice
 from category.views import head, category_details
 from banner.views import banner_all
-from goods.views import new, hot, good, detail
+from goods.views import new, hot, good, detail, guess, cart, cart_detail, order_pre, address, order
 
 # 导入 simplejwt 提供的几个验证视图类
 from rest_framework_simplejwt.views import (
@@ -49,6 +49,8 @@ urlpatterns = [
     path('user_notice/', user_notice.UserNoticeView.as_view()),
     # 获取Web端首页分类数据
     path('categoryHead/', head.CategoryHeadView.as_view()),
+    # 小程序端获取首页分类数据
+    path('category/', head.CategoryView.as_view()),
     # 获取某分类下所有二级分类
     path('categoryDetails/', category_details.CategoryDetailsView.as_view()),
     # 获取首页轮播图
@@ -57,8 +59,16 @@ urlpatterns = [
     path('new/', new.GoodsNewView.as_view()),
     # 获取人气推荐
     path('hot/', hot.GoodsHotView.as_view()),
-    # 获取首页商品
     path('good/', good.GoodView.as_view()),
-    # 获取商品详情
-    path('goodsDetail', detail.GoodsDetailView.as_view())
+    path('guess/', guess.GuessView.as_view()),
+    path('goodsDetail/', detail.GoodsDetailView.as_view()),
+    path('cart/', cart.GoodsCartView.as_view()),
+    path('order/', order.OrderView.as_view()),
+    path('order_pre/', order_pre.OrderPreView.as_view()),
+    path('address/', address.AddressView.as_view()),
+    re_path(r'cart_detail/(?P<id>\d+)', cart_detail.CartDetailView.as_view()),
+    path('file/', file.ImageView.as_view()),
+    path('upload/', file.MaskView.as_view()),
+    path('record/', reocrd.RecodeView.as_view()),
+    path('detect/', detect.DetectView.as_view()),
 ]

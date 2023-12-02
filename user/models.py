@@ -65,3 +65,46 @@ class Menu(models.Model):
     class Meta:
         verbose_name_plural = '菜单表'
 
+
+class ImageDrawing(models.Model):
+    url = models.FileField(upload_to='image_drawing/')
+
+    def __str__(self):
+        return str(self.url.url)
+
+    class Meta:
+        verbose_name_plural = '上传原图'
+
+
+class MaskDrawing(models.Model):
+    url = models.FileField(upload_to='mask_drawing/')
+
+    def __str__(self):
+        return str(self.url.url)
+
+    class Meta:
+        verbose_name_plural = '上传Mask'
+
+
+class DetectionRecord(models.Model):
+    image = models.ForeignKey(
+        to='ImageDrawing',
+        to_field='id',
+        on_delete=models.SET_NULL,
+        verbose_name='原图', null=True, blank=True
+    )
+
+    mask = models.ForeignKey(
+        to='MaskDrawing',
+        to_field='id',
+        on_delete=models.SET_NULL,
+        verbose_name='mask', null=True, blank=True
+    )
+
+    create_date = models.DateTimeField(verbose_name='检测时间', auto_now_add=True)
+
+    def __str__(self):
+        return str(self.create_date)
+
+    class Meta:
+        verbose_name_plural = '检测记录'

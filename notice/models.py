@@ -19,3 +19,14 @@ class Notice(models.Model):
 
     class Meta:
         verbose_name_plural = '消息'
+
+
+class Image(models.Model):
+    url = models.FileField(verbose_name='保存图片', upload_to='recognize')
+    create_date = models.DateTimeField(verbose_name='识别时间', auto_now_add=True)
+
+    def __str__(self):
+        return str(self.create_date)[:10]
+
+    class Meta:
+        verbose_name_plural = '图片识别'

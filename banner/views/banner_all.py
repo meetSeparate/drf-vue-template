@@ -9,15 +9,14 @@ class BannerAllView(APIView):
     res = {
         'code': 500,
         'msg': '操作成功',
-        'data': None
+        'result': []
     }
 
-    def get(self ,request):
-        distribution_site = int(request.GET.get('distributionSite'))
+    def get(self, request):
+        self.res['result'] = []
         banner_list = Banner.objects.all()
-        self.res['data'] = []
         for banner in banner_list:
-            self.res['data'].append({
+            self.res['result'].append({
                 'id': banner.id,
                 'imgUrl': 'http://127.0.0.1:8000' + banner.banner_url.url,
                 'type': banner.type,

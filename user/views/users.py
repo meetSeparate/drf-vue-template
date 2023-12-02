@@ -17,8 +17,8 @@ class UserView(APIView):
             'total': 7
         }
         username = request.GET.get('username')
-        currentPage = int(request.GET.get('currentPage'))
-        pageSize = int(request.GET.get('pageSize'))
+        currentPage = request.GET.get('currentPage')
+        pageSize = request.GET.get('pageSize')
         if username:
             user_query = UserInfo.objects.filter(username__contains=username)
         else:

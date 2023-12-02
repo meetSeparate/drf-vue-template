@@ -5,8 +5,8 @@ from banner.models import Banner
 
 # Register your models here.
 
-admin.site.register(Category)
-admin.site.register(Goods)
-admin.site.register(Banner)
-admin.site.register(Recommend)
-admin.site.register(GoodsSkus)
+# admin.site.register(Category)
+# admin.site.register(Goods)
+# admin.site.register(Banner)
+# admin.site.register(Recommend)
+# admin.site.register(GoodsSkus)
